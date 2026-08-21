@@ -1,0 +1,503 @@
+{% extends "base.html" %}
+
+{% block title %}Start a Project | Noventra Technologies{% endblock %}
+
+{% block content %}
+
+<!-- =========================================
+     FLASH MESSAGES
+========================================= -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        <div class="flash-messages">
+
+            {% for category, message in messages %}
+
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+{% endwith %}
+
+
+<!-- =========================================
+     CONTACT HERO
+========================================= -->
+
+<section class="contact-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            START A PROJECT
+        </p>
+
+        <h1>
+            Let's build something
+            <span>that moves your business forward.</span>
+        </h1>
+
+        <p>
+            Tell us about your business, your challenge and what
+            you're looking to build. We'll review your requirements
+            and get back to you.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT SECTION
+========================================= -->
+
+<section class="contact-section">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+
+            <!-- =================================
+                 CONTACT INFORMATION
+            ================================== -->
+
+            <div class="contact-info">
+
+                <p class="eyebrow">
+                    TELL US ABOUT YOUR PROJECT
+                </p>
+
+                <h2>
+                    Have an idea?
+                    <span>Let's talk.</span>
+                </h2>
+
+                <p>
+                    Whether you need a new website, custom software,
+                    an e-commerce platform or a business automation
+                    solution, we'd like to understand what you're
+                    trying to achieve.
+                </p>
+
+
+                <div class="contact-details">
+
+                    <div class="contact-detail">
+
+                        <span>
+                            EMAIL
+                        </span>
+
+                        <strong>
+                            noventratechweb@gmail.com
+                        </strong>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <span>
+                            RESPONSE TIME
+                        </span>
+
+                        <strong>
+                            Usually within 1 business day
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 PROJECT FORM
+            ================================== -->
+
+            <div class="contact-form-wrapper">
+
+                <form
+                    method="POST"
+                    action="{{ url_for('contact') }}"
+                >
+
+
+                    <!-- NAME + COMPANY -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Your Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="company">
+                                Company
+                            </label>
+
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                placeholder="Company name"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL + PHONE -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@company.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone
+                            </label>
+
+                            <div class="phone-wrapper">
+
+                                <select
+                                    id="country-code"
+                                    name="country_code"
+                                >
+
+                                    <option value="+234">
+                                        Nigeria +234
+                                    </option>
+
+                                    <option value="+44">
+                                        United Kingdom +44
+                                    </option>
+
+                                    <option value="+1">
+                                        United States +1
+                                    </option>
+
+                                    <option value="+1">
+                                        Canada +1
+                                    </option>
+
+                                    <option value="+49">
+                                        Germany +49
+                                    </option>
+
+                                    <option value="+33">
+                                        France +33
+                                    </option>
+
+                                    <option value="+39">
+                                        Italy +39
+                                    </option>
+
+                                    <option value="+34">
+                                        Spain +34
+                                    </option>
+
+                                    <option value="+31">
+                                        Netherlands +31
+                                    </option>
+
+                                    <option value="+32">
+                                        Belgium +32
+                                    </option>
+
+                                    <option value="+41">
+                                        Switzerland +41
+                                    </option>
+
+                                    <option value="+43">
+                                        Austria +43
+                                    </option>
+
+                                    <option value="+351">
+                                        Portugal +351
+                                    </option>
+
+                                    <option value="+46">
+                                        Sweden +46
+                                    </option>
+
+                                    <option value="+47">
+                                        Norway +47
+                                    </option>
+
+                                    <option value="+45">
+                                        Denmark +45
+                                    </option>
+
+                                    <option value="+358">
+                                        Finland +358
+                                    </option>
+
+                                    <option value="+91">
+                                        India +91
+                                    </option>
+                                    <option value="+86">
+                                        China +86
+                                    </option>
+
+                                    <option value="+81">
+                                        Japan +81
+                                    </option>
+
+                                    <option value="+82">
+                                        South Korea +82
+                                    </option>
+
+                                    <option value="+971">
+                                        United Arab Emirates +971
+                                    </option>
+
+                                    <option value="+27">
+                                        South Africa +27
+                                    </option>
+
+                                    <option value="+254">
+                                        Kenya +254
+                                    </option>
+
+                                    <option value="+233">
+                                        Ghana +233
+                                    </option>
+
+                                </select>
+
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Phone number"
+                                    autocomplete="tel"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SERVICE -->
+
+                    <div class="form-group">
+
+                        <label for="service">
+                            Service Needed *
+                        </label>
+
+                        <select
+                            id="service"
+                            name="service"
+                            required
+                        >
+
+                            <option value="">
+                                Select a service
+                            </option>
+
+                            <option value="Web Development">
+                                Web Development
+                            </option>
+
+                            <option value="Custom Software">
+                                Custom Software
+                            </option>
+
+                            <option value="Mobile Applications">
+                                Mobile Applications
+                            </option>
+
+                            <option value="E-commerce">
+                                E-commerce
+                            </option>
+
+                            <option value="UI/UX Design">
+                                UI/UX Design
+                            </option>
+
+                            <option value="Cloud & DevOps">
+                                Cloud &amp; DevOps
+                            </option>
+
+                            <option value="Business Automation">
+                                Business Automation
+                            </option>
+
+                            <option value="API & System Integration">
+                                API &amp; System Integration
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- BUDGET -->
+
+                    <div class="form-group">
+
+                        <label for="budget">
+                            Estimated Budget
+                        </label>
+
+                        <select
+                            id="budget"
+                            name="budget"
+                        >
+
+                            <option value="">
+                                Select a budget range
+                            </option>
+
+                            <option value="Under $500">
+                                Under $500
+                            </option>
+
+                            <option value="$500 - $1,000">
+                                $500 - $1,000
+                            </option>
+
+                            <option value="$1,000 - $3,000">
+                                $1,000 - $3,000
+                            </option>
+
+                            <option value="$3,000 - $5,000">
+                                $3,000 - $5,000
+                            </option>
+
+                            <option value="$5,000+">
+                                $5,000+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- PROJECT MESSAGE -->
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Project Description *
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="7"
+                            placeholder="Tell us about your project, goals, features and requirements..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="button primary form-button"
+                    >
+                        Send Project Inquiry →
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CALL TO ACTION
+========================================= -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            READY TO START?
+        </p>
+
+        <h2>
+            Let's turn your idea
+            <span>into a solution.</span>
+        </h2>
+
+        <p>
+            Submit your project details and we'll review
+            your requirements.
+        </p>
+
+        <a
+            href="{{ url_for('home') }}"
+            class="button secondary"
+        >
+            Back to Home
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

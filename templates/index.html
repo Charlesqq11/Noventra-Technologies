@@ -1,0 +1,649 @@
+{% extends "base.html" %}
+
+{% block title %}
+Noventra Technologies | Digital Solutions
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================================
+     NOVENTRA HERO
+========================================= -->
+
+<section class="hero-section">
+
+    <!-- YOUR REAL HERO PHOTO -->
+    <div class="hero-image">
+        <img
+            src="{{ url_for('static', filename='images/office1.png') }}"
+            alt="Noventra Technologies"
+        >
+    </div>
+
+    <!-- DARK OVERLAY -->
+    <div class="hero-overlay"></div>
+
+    <!-- HERO CONTENT -->
+    <div class="container hero-content">
+
+        <p class="eyebrow">
+            NOVENTRA TECHNOLOGIES
+        </p>
+
+        <h1>
+            Technology built for
+            <span>business growth.</span>
+        </h1>
+
+        <p>
+            We design and develop digital products, software
+            and technology solutions that help businesses
+            operate better and move forward.
+        </p>
+
+        <div class="hero-actions">
+
+            <a
+                href="{{ url_for('contact') }}"
+                class="button primary"
+            >
+                Start a Project
+            </a>
+
+            <a
+                href="{{ url_for('services') }}"
+                class="button secondary"
+            >
+                Explore Services
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     TECHNOLOGY SERVICES
+========================================= -->
+
+<section class="technology-section">
+
+    <div class="container">
+
+        <div class="technology-grid">
+
+            <div class="technology-image">
+
+                <img
+                    src="{{ url_for('static', filename='images/office5.png') }}"
+                    alt="Professional technology services"
+                >
+
+            </div>
+
+            <div class="technology-content">
+
+                <p class="eyebrow">
+                    TECHNOLOGY SERVICES
+                </p>
+
+                <h2>
+                    Digital solutions designed
+                    <span>around your business.</span>
+                </h2>
+
+                <p>
+                    From websites and custom software to automation,
+                    e-commerce and system integrations, we build
+                    practical technology solutions around real
+                    business requirements.
+                </p>
+
+                <div class="service-list">
+
+                    <div>
+                        <strong>01</strong>
+                        <span>Web Development</span>
+                    </div>
+
+                    <div>
+                        <strong>02</strong>
+                        <span>Custom Software</span>
+                    </div>
+
+                    <div>
+                        <strong>03</strong>
+                        <span>Business Automation</span>
+                    </div>
+
+                    <div>
+                        <strong>04</strong>
+                        <span>API &amp; System Integration</span>
+                    </div>
+
+                </div>
+
+                <a href="{{ url_for('services') }}" class="text-link">
+                    View All Services →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BUSINESS STATS
+========================================= -->
+<section class="stats-section noventra-stats">
+
+    <div class="container">
+
+        <!-- CLIENT PROJECTS -->
+        <div class="homepage-stat">
+
+            <div class="stat-icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="18" y="14" width="28" height="36" rx="2"></rect>
+                    <rect x="25" y="8" width="28" height="36" rx="2"></rect>
+                    <line x1="31" y1="22" x2="45" y2="22"></line>
+                    <line x1="31" y1="29" x2="45" y2="29"></line>
+                    <line x1="31" y1="36" x2="40" y2="36"></line>
+                </svg>
+            </div>
+
+            <strong
+                class="noventra-counter"
+                data-target="{{ total_clients }}"
+            >0</strong>
+
+            <span>Client Projects</span>
+
+        </div>
+
+
+        <!-- COMPLETED PROJECTS -->
+        <div class="homepage-stat">
+
+            <div class="stat-icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="32" r="18"></circle>
+                    <circle cx="32" cy="32" r="11"></circle>
+                    <path d="M32 5 L36 11 L43 10 L44 17 L51 21 L47 27 L51 33 L45 37 L46 44 L39 45 L35 51 L29 47 L23 51 L19 45 L12 44 L13 37 L7 33 L11 27 L7 21 L14 17 L15 10 L22 11 Z"></path>
+                </svg>
+            </div>
+
+            <strong
+                class="noventra-counter"
+                data-target="{{ completed_projects }}"
+            >0</strong>
+
+            <span>Completed Projects</span>
+
+        </div>
+
+
+        <!-- BUSINESS SOLUTIONS -->
+        <div class="homepage-stat">
+
+            <div class="stat-icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M21 29 L21 20 C21 13 26 8 32 8 C38 8 43 13 43 20 V29"></path>
+                    <path d="M21 29 L13 29 C10 29 8 31 8 34 V45 C8 48 10 50 13 50 H24"></path>
+                    <path d="M43 29 L51 29 C54 29 56 31 56 34 V45 C56 48 54 50 51 50 H40"></path>
+                    <path d="M24 36 L29 41 L40 29"></path>
+                </svg>
+            </div>
+
+            <strong
+                class="noventra-counter"
+                data-target="9"
+            >0</strong>
+
+            <span>Business Solutions</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ABOUT / CTA
+========================================= -->
+
+<section class="about-cta-section">
+
+    <div class="about-cta-image">
+
+        <img
+            src="{{ url_for('static', filename='images/office3.png') }}"
+            alt="Modern professional business workspace"
+        >
+
+    </div>
+
+    <div class="about-cta-overlay"></div>
+
+    <div class="container about-cta-content">
+
+        <p class="eyebrow">
+            ABOUT NOVENTRA
+        </p>
+
+        <h2>
+            Technology that makes
+            <span>business simpler.</span>
+        </h2>
+
+        <p>
+            We focus on understanding the business problem first,
+            then building practical digital solutions around the
+            people, processes and goals behind it.
+        </p>
+
+        <a href="{{ url_for('about') }}" class="button primary">
+            About Noventra
+        </a>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     SERVICES PREVIEW
+========================================= -->
+
+<section class="services-preview">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                WHAT WE DO
+            </p>
+
+            <h2>
+                Technology built around
+                <span>your business.</span>
+            </h2>
+
+            <p>
+                From websites and custom software to automation
+                and system integration, we create solutions
+                designed to solve real business problems.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <!-- SERVICE 01 -->
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    High-performance websites and web applications
+                    designed for modern businesses.
+                </p>
+
+                <a href="{{ url_for('services') }}">
+                    Learn more →
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE 02 -->
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Custom Software
+                </h3>
+
+                <p>
+                    Business software built around your workflows,
+                    requirements and operational goals.
+                </p>
+
+                <a href="{{ url_for('services') }}">
+                    Learn more →
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE 03 -->
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Business Automation
+                </h3>
+
+                <p>
+                    Reduce repetitive work and improve efficiency
+                    through intelligent automation.
+                </p>
+
+                <a href="{{ url_for('services') }}">
+                    Learn more →
+                </a>
+
+            </div>
+
+
+            <!-- SERVICE 04 -->
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    04
+                </div>
+                <h3>
+                    API & Integration
+                </h3>
+
+                <p>
+                    Connect your systems and services into one
+                    efficient digital ecosystem.
+                </p>
+
+                <a href="{{ url_for('services') }}">
+                    Learn more →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     WHY NOVENTRA
+========================================= -->
+
+<section class="why-noventra">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                WHY NOVENTRA
+            </p>
+
+            <h2>
+                Technology with a
+                <span>business purpose.</span>
+            </h2>
+
+            <p>
+                We don't build technology for technology's sake.
+                Every solution is designed to improve how your
+                business operates, serves customers and grows.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <!-- WHY 01 -->
+
+            <div class="why-card">
+
+                <div class="why-number">
+                    01
+                </div>
+
+                <h3>
+                    Business-First Thinking
+                </h3>
+
+                <p>
+                    We start by understanding your business,
+                    your challenges and the outcome you need
+                    before designing the solution.
+                </p>
+
+            </div>
+
+
+            <!-- WHY 02 -->
+
+            <div class="why-card">
+
+                <div class="why-number">
+                    02
+                </div>
+
+                <h3>
+                    Built Around Your Workflow
+                </h3>
+
+                <p>
+                    We build solutions around the way your
+                    team actually works instead of forcing
+                    your business into generic software.
+                </p>
+
+            </div>
+
+
+            <!-- WHY 03 -->
+
+            <div class="why-card">
+
+                <div class="why-number">
+                    03
+                </div>
+
+                <h3>
+                    Designed to Scale
+                </h3>
+
+                <p>
+                    Our solutions are designed with future
+                    growth in mind, making it easier to expand,
+                    integrate and improve over time.
+                </p>
+
+            </div>
+
+
+            <!-- WHY 04 -->
+
+            <div class="why-card">
+
+                <div class="why-number">
+                    04
+                </div>
+
+                <h3>
+                    Practical Digital Solutions
+                </h3>
+
+                <p>
+                    We focus on solving real business problems,
+                    reducing unnecessary work and creating
+                    practical digital value.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FINAL CTA
+========================================= -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            LET'S BUILD SOMETHING
+        </p>
+
+        <h2>
+            Have a business challenge
+            <span>worth solving?</span>
+        </h2>
+
+        <p>
+            Tell us what you're trying to achieve.
+            We'll help turn the idea into a practical
+            digital solution.
+        </p>
+
+        <a
+            href="{{ url_for('contact') }}"
+            class="button primary"
+        >
+            Start a Project
+        </a>
+
+    </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const section = document.querySelector(".noventra-stats");
+    const counters = document.querySelectorAll(".noventra-counter");
+
+    if (!section || counters.length === 0) {
+        return;
+    }
+
+    let hasStarted = false;
+
+    function startCounters() {
+
+        if (hasStarted) {
+            return;
+        }
+
+        hasStarted = true;
+
+        counters.forEach(function (counter) {
+
+            const target = Number(counter.dataset.target);
+
+            if (!Number.isFinite(target)) {
+                return;
+            }
+
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function animate(currentTime) {
+
+                const elapsed = currentTime - startTime;
+
+                let progress = elapsed / duration;
+
+                if (progress > 1) {
+                    progress = 1;
+                }
+
+                // Smooth counting effect
+                const eased =
+                    1 - Math.pow(1 - progress, 3);
+
+                const currentNumber =
+                    Math.floor(target * eased);
+
+                counter.textContent =
+                    currentNumber.toLocaleString();
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(animate);
+
+                } else {
+
+                    counter.textContent =
+                        target.toLocaleString();
+
+                }
+            }
+
+            requestAnimationFrame(animate);
+
+        });
+    }
+
+
+    /*
+     * Counter starts ONLY when visitor
+     * scrolls to the statistics section.
+     */
+
+    const observer = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    startCounters();
+
+                    observer.disconnect();
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.25
+        }
+    );
+
+
+    observer.observe(section);
+
+});
+</script>
+
+{% endblock %}

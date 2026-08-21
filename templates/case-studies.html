@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+
+{% block title %}Case Studies | Noventra Technologies{% endblock %}
+
+{% block content %}
+
+<!-- =========================================
+     CASE STUDIES HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            SELECTED WORK
+        </p>
+
+        <h1>
+            Digital products built to
+            <span>solve real problems.</span>
+        </h1>
+
+        <p>
+            Explore selected digital solutions demonstrating how
+            Noventra approaches product design, software development,
+            automation and business technology.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CASE STUDIES
+========================================= -->
+
+<section class="case-studies-page">
+
+    <div class="container">
+
+        <div class="case-study-grid">
+
+
+            <!-- =================================
+                 PROJECT 01
+            ================================== -->
+
+            <article class="case-card">
+
+                <div class="case-image case-logistics">
+                    <span>
+                        LOGISTICS PLATFORM
+                    </span>
+                </div>
+
+                <div class="case-content">
+
+                    <p class="case-category">
+                        Logistics &amp; Operations
+                    </p>
+
+                    <h2>
+                        Inventory &amp; Material Management Platform
+                    </h2>
+
+                    <p>
+                        A web-based platform designed to help businesses
+                        monitor inventory, manage material requests and
+                        improve operational workflows.
+                    </p>
+
+                    <div class="case-tags">
+                        <span>Web Application</span>
+                        <span>Automation</span>
+                        <span>Dashboard</span>
+                    </div>
+
+                    <a
+                        href="{{ url_for('case_study') }}"
+                        class="case-link"
+                    >
+                        View Case Study →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 PROJECT 02
+            ================================== -->
+
+            <article class="case-card">
+
+                <div class="case-image case-commerce">
+                    <span>
+                        E-COMMERCE
+                    </span>
+                </div>
+
+                <div class="case-content">
+
+                    <p class="case-category">
+                        E-commerce
+                    </p>
+
+                    <h2>
+                        Modern Online Commerce Platform
+                    </h2>
+
+                    <p>
+                        A scalable digital storefront concept focused
+                        on product discovery, customer experience and
+                        streamlined order management.
+                    </p>
+
+                    <div class="case-tags">
+                        <span>E-commerce</span>
+                        <span>Payments</span>
+                        <span>Product Management</span>
+                    </div>
+
+                    <a
+                        href="{{ url_for('case_study') }}"
+                        class="case-link"
+                    >
+                        View Case Study →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 PROJECT 03
+            ================================== -->
+
+            <article class="case-card">
+
+                <div class="case-image case-business">
+                    <span>
+                        BUSINESS SOFTWARE
+                    </span>
+                </div>
+
+                <div class="case-content">
+
+                    <p class="case-category">
+                        Business Management
+                    </p>
+
+                    <h2>
+                        Business Operations Dashboard
+                    </h2>
+
+                    <p>
+                        A centralized dashboard concept designed to
+                        bring business information, workflow tracking
+                        and operational insights into one interface.
+                    </p>
+
+                    <div class="case-tags">
+                        <span>Dashboard</span>
+                        <span>Analytics</span>
+                        <span>Automation</span>
+                    </div>
+
+                    <a
+                        href="{{ url_for('case_study') }}"
+                        class="case-link"
+                    >
+                        View Case Study →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================
+                 PROJECT 04
+            ================================== -->
+
+            <article class="case-card">
+
+                <div class="case-image case-booking">
+                    <span>
+                        BOOKING PLATFORM
+                    </span>
+                </div>
+
+                <div class="case-content">
+
+                    <p class="case-category">
+                        Booking &amp; Reservations
+                    </p>
+
+                    <h2>
+                        Online Booking Management System
+                    </h2>
+
+                    <p>
+                        A booking platform concept designed to simplify
+                        reservations, availability management and
+                        customer communication.
+                    </p>
+
+                    <div class="case-tags">
+                        <span>Booking</span>
+                        <span>Scheduling</span>
+                        <span>Customer Management</span>
+                    </div>
+
+                    <a
+                        href="{{ url_for('case_study') }}"
+                        class="case-link"
+                    >
+                        View Case Study →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CALL TO ACTION
+========================================= -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            HAVE A PROJECT?
+        </p>
+
+        <h2>
+            Let's turn your idea
+            <span>into a product.</span>
+        </h2>
+
+        <p>
+            Tell us about your business challenge and
+            let's explore the right digital solution.
+        </p>
+
+        <a
+            href="{{ url_for('contact') }}"
+            class="button primary"
+        >
+            Start a Project
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

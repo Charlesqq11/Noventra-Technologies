@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Noventra Technologies</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .admin-header h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .admin-header p {
+            margin: 10px 0 0;
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background: #111827;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .logout-btn:hover {
+            background: #000;
+            transform: translateY(-1px);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .stat-card span {
+            display: block;
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card strong {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .enquiry-count {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .enquiries {
+            display: grid;
+            gap: 18px;
+        }
+
+        .enquiry-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .enquiry-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .client-name {
+            margin: 0 0 5px;
+            font-size: 21px;
+        }
+
+        .company {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 20px;
+            background: #eef2ff;
+            color: #3730a3;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .enquiry-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            padding: 14px;
+            background: #f8fafc;
+            border-radius: 9px;
+        }
+
+        .info-item small {
+            display: block;
+            color: #64748b;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .info-item strong {
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+        .message {
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .message strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .message p {
+            margin: 0;
+            color: #475569;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .enquiry-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .date {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .empty {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .empty h3 {
+            margin-bottom: 8px;
+        }
+
+        .empty p {
+            color: #64748b;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .enquiry-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .admin-container {
+                padding: 25px 15px;
+            }
+
+            .admin-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .admin-header h1 {
+                font-size: 32px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .enquiry-top {
+                flex-direction: column;
+            }
+
+            .enquiry-footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+        
+            .reply-btn {
+                display: inline-block;
+                padding: 10px 18px;
+                background: #111827;
+                color: #ffffff;
+                text-decoration: none;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 600;
+                transition: 0.2s;
+        }
+
+            .reply-btn:hover {
+                background: #000000;
+                transform: translateY(-1px);
+            }
+
+            .admin-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.admin-actions form {
+    margin: 0;
+}
+
+.status-btn,
+.complete-btn {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.status-btn {
+    background: #eef2ff;
+    color: #3730a3;
+}
+
+.status-btn:hover {
+    background: #e0e7ff;
+}
+
+.complete-btn {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.complete-btn:hover {
+    background: #d1fae5;
+}
+
+@media (max-width: 700px) {
+
+    .admin-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-actions form,
+    .admin-actions a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* =========================================
+   ADMIN SEARCH
+========================================= */
+
+.admin-tools {
+    margin-bottom: 25px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-form input {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 13px 15px;
+    border: 1px solid #d9dee8;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #ffffff;
+}
+
+.search-form select {
+    padding: 13px 15px;
+    border: 1px solid #d9dee8;
+    border-radius: 8px;
+    background: #ffffff;
+    font-size: 14px;
+    color: #172033;
+}
+
+.search-form button {
+    width: auto;
+    padding: 13px 20px;
+}
+
+.clear-search {
+    padding: 12px 15px;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.clear-search:hover {
+    color: #111827;
+}
+
+@media (max-width: 700px) {
+
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form input,
+    .search-form select,
+    .search-form button,
+    .clear-search {
+        width: 100%;
+    }
+
+    .clear-search {
+        text-align: center;
+    }
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #f1f5f9;
+    color: #172033;
+    text-decoration: none;
+    border: 1px solid #d9dee8;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.view-btn:hover {
+    background: #e2e8f0;
+}
+
+.delete-btn {
+    border: none;
+    padding: 10px 18px;
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #fee2e2;
+}
+
+/* =========================================
+   PROFESSIONAL ADMIN IMPROVEMENTS
+========================================= */
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #111827;
+}
+
+.admin-header p {
+    margin: 7px 0 0;
+    color: #64748b;
+}
+
+.logout-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #ffffff;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.logout-btn:hover {
+    background: #fef2f2;
+}
+
+.stat-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.enquiry-card {
+    transition: box-shadow 0.2s;
+}
+
+.enquiry-card:hover {
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 700px) {
+
+    .admin-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-header h1 {
+        font-size: 25px;
+    }
+
+    .logout-btn {
+        text-align: center;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <!-- HEADER -->
+    <div class="admin-header">
+
+    <div>
+        <h1>Admin Dashboard</h1>
+
+        <p>
+            Manage and track Noventra Technologies project enquiries.
+        </p>
+    </div>
+
+    <a
+        href="{{ url_for('logout') }}"
+        class="logout-btn"
+    >
+        Logout
+    </a>
+
+</div>
+
+    </header>
+
+
+    <!-- STATISTICS -->
+    <section class="stats">
+
+        <div class="stat-card">
+            <span>Total Enquiries</span>
+            <strong>{{ total }}</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>New</span>
+            <strong>{{ new_count }}</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Contacted</span>
+            <strong>{{ contacted_count }}</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Completed</span>
+            <strong>{{ completed_count }}</strong>
+        </div>
+
+    </section>
+
+
+    <!-- CLIENT ENQUIRIES -->
+<section>
+
+    <!-- SEARCH AND FILTER -->
+
+    <div class="admin-tools">
+
+        <form
+            method="GET"
+            action="{{ url_for('admin') }}"
+            class="search-form"
+        >
+
+            <input
+                type="text"
+                name="search"
+                value="{{ search }}"
+                placeholder="Search name, company or email..."
+            >
+
+            <select name="status">
+
+                <option value="">
+                    All enquiries
+                </option>
+
+                <option
+                    value="New"
+                    {% if status_filter == "New" %}
+                        selected
+                    {% endif %}
+                >
+                    New
+                </option>
+
+                <option
+                    value="Contacted"
+                    {% if status_filter == "Contacted" %}
+                        selected
+                    {% endif %}
+                >
+                    Contacted
+                </option>
+
+                <option
+                    value="Completed"
+                    {% if status_filter == "Completed" %}
+                        selected
+                    {% endif %}
+                >
+                    Completed
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Search
+            </button>
+
+            {% if search or status_filter %}
+
+                <a
+                    href="{{ url_for('admin') }}"
+                    class="clear-search"
+                >
+                    Clear
+                </a>
+
+            {% endif %}
+
+        </form>
+
+    </div>
+
+
+    <div class="section-header">
+
+        <h2>Client Enquiries</h2>
+
+        <div class="enquiry-count">
+            {{ enquiries|length }} enquiries
+        </div>
+
+    </div>
+
+
+        {% if enquiries %}
+
+        <div class="enquiries">
+
+            {% for enquiry in enquiries %}
+
+            <article class="enquiry-card">
+
+                <div class="enquiry-top">
+
+                    <div>
+                        <h3 class="client-name">
+                            {{ enquiry["name"] }}
+                        </h3>
+
+                        {% if enquiry["company"] %}
+                        <p class="company">
+                            {{ enquiry["company"] }}
+                        </p>
+                        {% endif %}
+                    </div>
+
+                    <span class="status">
+                        {{ enquiry["status"] }}
+                    </span>
+
+                </div>
+
+
+                <div class="enquiry-info">
+
+                    <div class="info-item">
+                        <small>Email</small>
+                        <strong>
+                            {{ enquiry["email"] }}
+                        </strong>
+                    </div>
+
+
+                    <div class="info-item">
+                        <small>Phone</small>
+
+                        <strong>
+                            {% if enquiry["country_code"] %}
+                                {{ enquiry["country_code"] }}
+                            {% endif %}
+
+                            {% if enquiry["phone"] %}
+                                {{ enquiry["phone"] }}
+                            {% else %}
+                                Not provided
+                            {% endif %}
+                        </strong>
+                    </div>
+
+
+                    <div class="info-item">
+                        <small>Service</small>
+
+                        <strong>
+                            {{ enquiry["service"] }}
+                        </strong>
+                    </div>
+
+
+                    <div class="info-item">
+                        <small>Estimated Budget</small>
+
+                        <strong>
+                            {% if enquiry["budget"] %}
+                                {{ enquiry["budget"] }}
+                            {% else %}
+                                Not specified
+                            {% endif %}
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="message">
+
+                    <strong>Project Description</strong>
+
+                    <p>
+                        {{ enquiry["message"] }}
+                    </p>
+
+                </div>
+
+
+                <div class="enquiry-footer">
+
+    <span class="date">
+        Received:
+        {{ enquiry["created_at"] }}
+    </span>
+
+    <div class="admin-actions">
+
+        <a
+           href="{{ url_for('view_enquiry', enquiry_id=enquiry['id']) }}"
+           class="view-btn"
+        >
+           View Details
+        </a>
+
+        <a
+           href="https://mail.google.com/mail/?view=cm&fs=1&to={{ enquiry['email']|urlencode }}&su={{ 'Re: Your Project Inquiry - Noventra Technologies'|urlencode }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="reply-btn"
+        >
+           Reply to Client
+        </a>
+
+        {% if enquiry["status"] != "Contacted" %}
+        <form
+            action="{{ url_for('update_status', enquiry_id=enquiry['id']) }}"
+            method="POST"
+        >
+            <input type="hidden" name="status" value="Contacted">
+
+            <button type="submit" class="status-btn">
+                Mark Contacted
+            </button>
+        </form>
+        {% endif %}
+
+        {% if enquiry["status"] != "Completed" %}
+        <form
+            action="{{ url_for('update_status', enquiry_id=enquiry['id']) }}"
+            method="POST"
+        >
+            <input type="hidden" name="status" value="Completed">
+
+            <button type="submit" class="complete-btn">
+                Mark Completed
+            </button>
+        </form>
+        {% endif %}
+
+        <form
+    action="{{ url_for('delete_enquiry', enquiry_id=enquiry['id']) }}"
+    method="POST"
+    onsubmit="return confirm('Are you sure you want to permanently delete this enquiry?');"
+>
+    <button
+        type="submit"
+        class="delete-btn"
+    >
+        Delete
+    </button>
+</form>
+
+    </div>
+
+</div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty">
+
+            <h3>No enquiries yet</h3>
+
+            <p>
+                New project enquiries will appear here.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+</div>
+
+</body>
+</html>

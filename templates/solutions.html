@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+
+{% block title %}Solutions | Noventra Technologies{% endblock %}
+
+{% block content %}
+
+<!-- =========================================
+     SOLUTIONS HERO
+========================================= -->
+
+<section class="page-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            BUSINESS SOLUTIONS
+        </p>
+
+        <h1>
+            Digital solutions for
+            <span>real business challenges.</span>
+        </h1>
+
+        <p>
+            We combine technology, thoughtful design and practical
+            engineering to build digital solutions around the needs
+            of modern businesses.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BUSINESS SOLUTIONS
+========================================= -->
+
+<section class="solutions-page">
+
+    <div class="container">
+
+        <div class="solutions-grid">
+
+
+            <!-- 01 -->
+
+            <article class="solution-card">
+
+                <div class="solution-number">
+                    01
+                </div>
+
+                <h2>
+                    Logistics
+                </h2>
+
+                <p>
+                    Digital systems that help logistics businesses
+                    manage operations, inventory, deliveries and
+                    workflows more efficiently.
+                </p>
+
+                <ul>
+                    <li>Inventory management</li>
+                    <li>Order tracking</li>
+                    <li>Delivery management</li>
+                    <li>Operational dashboards</li>
+                </ul>
+
+            </article>
+
+
+            <!-- 02 -->
+
+            <article class="solution-card">
+
+                <div class="solution-number">
+                    02
+                </div>
+
+                <h2>
+                    E-commerce
+                </h2>
+
+                <p>
+                    Complete digital commerce experiences designed
+                    to help businesses sell products and manage
+                    customers online.
+                </p>
+
+                <ul>
+                    <li>Online stores</li>
+                    <li>Product management</li>
+                    <li>Order processing</li>
+                    <li>Payment integration</li>
+                </ul>
+
+            </article>
+
+
+            <!-- 03 -->
+
+            <article class="solution-card">
+
+                <div class="solution-number">
+                    03
+                </div>
+
+                <h2>
+                    Business Management
+                </h2>
+
+                <p>
+                    Centralized business applications that help teams
+                    manage information, workflows and daily operations.
+                </p>
+
+                <ul>
+                    <li>Business dashboards</li>
+                    <li>Employee management</li>
+                    <li>Reporting systems</li>
+                    <li>Workflow management</li>
+                </ul>
+
+            </article>
+
+
+            <!-- 04 -->
+
+            <article class="solution-card">
+
+                <div class="solution-number">
+                    04
+                </div>
+
+                <h2>
+                    Real Estate
+                </h2>
+
+                <p>
+                    Digital platforms for property businesses to
+                    manage listings, enquiries, customers and
+                    property information.
+                </p>
+
+                <ul>
+                    <li>Property listings</li>
+                    <li>Property search</li>
+                    <li>Lead management</li>
+                    <li>Agent dashboards</li>
+                </ul>
+
+            </article>
+
+
+            <!-- 05 -->
+
+            <article class="solution-card">
+
+                <div class="solution-number">
+                    05
+                </div>
+
+                <h2>
+                    Booking &amp; Reservations
+                </h2>
+
+                <p>
+                    Flexible booking systems that make it easier for
+                    businesses to manage appointments, reservations
+                    and customer schedules.
+                </p>
+
+                <ul>
+                    <li>Online booking</li>
+                    <li>Availability management</li>
+                    <li>Customer records</li>
+                    <li>Notifications</li>
+                </ul>
+
+            </article>
+
+
+            <!-- 06 -->
+
+            <article class="solution-card">
+
+                <div class="solution-number">
+                    06
+                </div>
+
+                <h2>
+                    Corporate Solutions
+                </h2>
+
+                <p>
+                    Custom digital platforms designed around the
+                    specific requirements of established organizations.
+                </p>
+
+                <ul>
+                    <li>Internal platforms</li>
+                    <li>Enterprise dashboards</li>
+                    <li>Document workflows</li>
+                    <li>System integration</li>
+                </ul>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CALL TO ACTION
+========================================= -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            YOUR BUSINESS. YOUR SOLUTION.
+        </p>
+
+        <h2>
+            Don't see exactly what
+            <span>you need?</span>
+        </h2>
+
+        <p>
+            We can design a custom solution around your
+            specific business requirements.
+        </p>
+
+        <a
+            href="{{ url_for('contact') }}"
+            class="button primary"
+        >
+            Discuss Your Project
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
